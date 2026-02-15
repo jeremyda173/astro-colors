@@ -1,0 +1,119 @@
+---
+// This component uses client:visible for on-demand hydration
+// Only loads JavaScript when the user scrolls to it
+---
+
+<div class="copy-toast" id="copyToast">
+  <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M20 6L9 17l-5-5"/>
+  </svg>
+  <span class="toast-message">Color copiado!</span>
+</div>
+
+<script>
+  // This script runs on the client when the component becomes visible
+  let toastTimeout: number;
+
+  function showToast() {
+    const toast = document.getElementById('copyToast');
+    if (!toast) return;
+    
+    toast.classList.add('show');
+    
+    clearTimeout(toastTimeout);
+    toastTimeout = window.setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2000);
+  }
+
+  async function copyToClipboard(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast();
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  }
+
+  // Add click listeners to all color swatches
+  document.addEventListener('DOMContentLoaded', () => {
+    const swatches = document.querySelectorAll('.color-swatch-wrapper');
+    
+    swatches.forEach((wrapper) => {
+      wrapper.addEventListener('click', () => {
+        const swatch = wrapper.querySelector('.color-swatch') as HTMLElement;
+        const color = swatch?.dataset.color;
+        
+        if (color) {
+          copyToClipboard(color);
+          
+          // Visual feedback
+          wrapper.classList.add('copied');
+          setTimeout(() => {
+            wrapper.classList.remove('copied');
+          }, 300);
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .copy-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-accent-gradient);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transform: translateY(150%);
+    opacity: 0;
+    transition: all var(--transition-base);
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .copy-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .toast-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 3;
+  }
+
+  .toast-message {
+    white-space: nowrap;
+  }
+
+  :global(.color-swatch-wrapper.copied) {
+    animation: pulse 0.3s ease-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: translateX(4px) scale(1);
+    }
+    50% {
+      transform: translateX(4px) scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .copy-toast {
+      bottom: 1rem;
+      right: 1rem;
+      left: 1rem;
+      justify-content: center;
+    }
+  }
+</style>
