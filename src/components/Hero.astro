@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <header class="hero">
@@ -22,23 +23,21 @@
       
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-value">⚡ 0 KB</div>
+          <div class="stat-value"><Icon name="lucide:zap" /> 0 KB</div>
           <div class="stat-label">JavaScript inicial</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">🏝️ Islas</div>
+          <div class="stat-value"><Icon name="lucide:palmtree" /> Islas</div>
           <div class="stat-label">Hidratación bajo demanda</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">💯 100</div>
+          <div class="stat-value"><Icon name="lucide:gauge" /> 100</div>
           <div class="stat-label">Lighthouse Score</div>
         </div>
       </div>
 
       <div class="hero-cta">
-        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-        </svg>
+        <Icon name="lucide:arrow-down" class="cta-icon" />
         <span>Haz clic en cualquier color para copiar</span>
       </div>
     </div>
@@ -119,6 +118,16 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+
+  .stat-value [data-icon] {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-primary);
   }
 
   .stat-label {
