@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <footer class="footer">
@@ -6,11 +7,7 @@
     <div class="footer-content">
       <div class="footer-info">
         <div class="footer-logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
+          <Icon name="lucide:layers" />
           <span>Astro Colors</span>
         </div>
         <p class="footer-description">
@@ -22,20 +19,20 @@
       <div class="footer-tech">
         <h4>Tecnologías</h4>
         <ul>
-          <li>⚡ Astro 5.17</li>
-          <li>🏝️ Islands Architecture</li>
-          <li>🎨 Zero JS Rendering</li>
-          <li>💯 Perfect Lighthouse</li>
+          <li><Icon name="lucide:zap" /> Astro 5.17</li>
+          <li><Icon name="lucide:palmtree" /> Islands Architecture</li>
+          <li><Icon name="lucide:palette" /> Zero JS Rendering</li>
+          <li><Icon name="lucide:gauge" /> Perfect Lighthouse</li>
         </ul>
       </div>
       
       <div class="footer-features">
         <h4>Características</h4>
         <ul>
-          <li>30+ Paletas Curadas</li>
-          <li>Copia Instantánea</li>
-          <li>Diseño Responsive</li>
-          <li>Modo Oscuro</li>
+          <li><Icon name="lucide:check-circle" /> 30+ Paletas Curadas</li>
+          <li><Icon name="lucide:copy" /> Copia Instantánea</li>
+          <li><Icon name="lucide:monitor" /> Diseño Responsive</li>
+          <li><Icon name="lucide:moon" /> Modo Oscuro</li>
         </ul>
       </div>
     </div>
@@ -126,9 +123,19 @@
 
   .footer-tech li,
   .footer-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
     color: var(--color-text-muted);
     font-size: 0.875rem;
     transition: color var(--transition-fast);
+  }
+
+  .footer-tech li [data-icon],
+  .footer-features li [data-icon] {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent-primary);
   }
 
   .footer-tech li:hover,
