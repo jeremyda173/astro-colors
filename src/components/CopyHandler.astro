@@ -1,17 +1,13 @@
 ---
-// This component uses client:visible for on-demand hydration
-// Only loads JavaScript when the user scrolls to it
+import { Icon } from 'astro-icon/components';
 ---
 
 <div class="copy-toast" id="copyToast">
-  <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M20 6L9 17l-5-5"/>
-  </svg>
+  <Icon name="lucide:check" class="toast-icon" />
   <span class="toast-message">Color copiado!</span>
 </div>
 
 <script>
-  // This script runs on the client when the component becomes visible
   let toastTimeout: number;
 
   function showToast() {
@@ -35,7 +31,6 @@
     }
   }
 
-  // Add click listeners to all color swatches
   document.addEventListener('DOMContentLoaded', () => {
     const swatches = document.querySelectorAll('.color-swatch-wrapper');
     
@@ -47,7 +42,6 @@
         if (color) {
           copyToClipboard(color);
           
-          // Visual feedback
           wrapper.classList.add('copied');
           setTimeout(() => {
             wrapper.classList.remove('copied');
