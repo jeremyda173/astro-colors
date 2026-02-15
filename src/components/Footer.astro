@@ -1,0 +1,196 @@
+---
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          <span>Astro Colors</span>
+        </div>
+        <p class="footer-description">
+          Generador de paletas de colores de alto rendimiento construido con Astro.
+          Aprovecha la Arquitectura de Islas para una experiencia ultra rápida.
+        </p>
+      </div>
+      
+      <div class="footer-tech">
+        <h4>Tecnologías</h4>
+        <ul>
+          <li>⚡ Astro 5.17</li>
+          <li>🏝️ Islands Architecture</li>
+          <li>🎨 Zero JS Rendering</li>
+          <li>💯 Perfect Lighthouse</li>
+        </ul>
+      </div>
+      
+      <div class="footer-features">
+        <h4>Características</h4>
+        <ul>
+          <li>30+ Paletas Curadas</li>
+          <li>Copia Instantánea</li>
+          <li>Diseño Responsive</li>
+          <li>Modo Oscuro</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="mono">
+        Mikens x Astro • {new Date().getFullYear()}
+      </p>
+      <div class="footer-badges">
+        <span class="badge">HTML Estático</span>
+        <span class="badge">Hidratación Parcial</span>
+        <span class="badge">Ultra Rápido</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--spacing-3xl);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-accent-gradient);
+    opacity: 0.3;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer-logo svg {
+    width: 28px;
+    height: 28px;
+    stroke: url(#gradient);
+  }
+
+  .footer-description {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  .footer-tech h4,
+  .footer-features h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-tech ul,
+  .footer-features ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .footer-tech li,
+  .footer-features li {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-tech li:hover,
+  .footer-features li:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .footer-bottom p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .footer-badges {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 968px) {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-info {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-badges {
+      justify-content: center;
+    }
+  }
+</style>
