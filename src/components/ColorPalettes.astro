@@ -1,0 +1,243 @@
+---
+// Static color palettes data - rendered as pure HTML
+const colorPalettes = [
+  {
+    name: "Ocean Depths",
+    colors: ["#001F3F", "#003D5C", "#006494", "#0582CA", "#00A6FB"]
+  },
+  {
+    name: "Sunset Vibes",
+    colors: ["#FF6B35", "#F7931E", "#FDC830", "#F37335", "#C73E1D"]
+  },
+  {
+    name: "Forest Dreams",
+    colors: ["#0B3D0B", "#1B5E20", "#2E7D32", "#43A047", "#66BB6A"]
+  },
+  {
+    name: "Purple Haze",
+    colors: ["#4A148C", "#6A1B9A", "#7B1FA2", "#8E24AA", "#9C27B0"]
+  },
+  {
+    name: "Candy Pop",
+    colors: ["#FF006E", "#FB5607", "#FFBE0B", "#8338EC", "#3A86FF"]
+  },
+  {
+    name: "Midnight Sky",
+    colors: ["#0D1B2A", "#1B263B", "#415A77", "#778DA9", "#E0E1DD"]
+  },
+  {
+    name: "Cherry Blossom",
+    colors: ["#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF"]
+  },
+  {
+    name: "Neon Nights",
+    colors: ["#08F7FE", "#09FBD3", "#FE53BB", "#F5D300", "#00FF41"]
+  },
+  {
+    name: "Earth Tones",
+    colors: ["#6B4423", "#8B5A3C", "#A0826D", "#B8A99A", "#D4C5B9"]
+  },
+  {
+    name: "Arctic Frost",
+    colors: ["#E3F2FD", "#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5"]
+  },
+  {
+    name: "Tropical Paradise",
+    colors: ["#00D9FF", "#00E5BE", "#00F260", "#0575E6", "#021B79"]
+  },
+  {
+    name: "Autumn Leaves",
+    colors: ["#8B0000", "#B8860B", "#DAA520", "#CD853F", "#D2691E"]
+  },
+  {
+    name: "Lavender Fields",
+    colors: ["#E6E6FA", "#D8BFD8", "#DDA0DD", "#BA55D3", "#9370DB"]
+  },
+  {
+    name: "Citrus Burst",
+    colors: ["#FFEB3B", "#FFC107", "#FF9800", "#FF5722", "#F44336"]
+  },
+  {
+    name: "Monochrome Pro",
+    colors: ["#000000", "#404040", "#808080", "#C0C0C0", "#FFFFFF"]
+  },
+  {
+    name: "Mint Fresh",
+    colors: ["#E0F2F1", "#B2DFDB", "#80CBC4", "#4DB6AC", "#26A69A"]
+  },
+  {
+    name: "Rose Gold",
+    colors: ["#FFF0F5", "#FFE4E1", "#FFC0CB", "#FFB6C1", "#FF69B4"]
+  },
+  {
+    name: "Deep Space",
+    colors: ["#0F0F23", "#1A1A3E", "#2E2E5F", "#4A4A8A", "#6B6BB5"]
+  },
+  {
+    name: "Coral Reef",
+    colors: ["#FF7F50", "#FF6347", "#FF4500", "#FA8072", "#FFA07A"]
+  },
+  {
+    name: "Emerald City",
+    colors: ["#004D40", "#00695C", "#00897B", "#00ACC1", "#00BCD4"]
+  },
+  {
+    name: "Golden Hour",
+    colors: ["#FFD700", "#FFA500", "#FF8C00", "#FF7F00", "#FF6F00"]
+  },
+  {
+    name: "Blueberry",
+    colors: ["#1A237E", "#283593", "#303F9F", "#3949AB", "#3F51B5"]
+  },
+  {
+    name: "Watermelon",
+    colors: ["#FF1744", "#F50057", "#C51162", "#880E4F", "#4A148C"]
+  },
+  {
+    name: "Sage Garden",
+    colors: ["#8A9A5B", "#9CAF88", "#B4C7A4", "#C9D5B5", "#E8F5E9"]
+  },
+  {
+    name: "Cyber Punk",
+    colors: ["#FF00FF", "#00FFFF", "#FFFF00", "#FF0080", "#0080FF"]
+  },
+  {
+    name: "Peachy Keen",
+    colors: ["#FFDAB9", "#FFDEAD", "#FFE4B5", "#FFEFD5", "#FFF8DC"]
+  },
+  {
+    name: "Slate Modern",
+    colors: ["#1E293B", "#334155", "#475569", "#64748B", "#94A3B8"]
+  },
+  {
+    name: "Flamingo Pink",
+    colors: ["#FF69B4", "#FF1493", "#C71585", "#DB7093", "#FFB6C1"]
+  },
+  {
+    name: "Ocean Blue",
+    colors: ["#006994", "#0582CA", "#00A6FB", "#51C4D3", "#7DE5ED"]
+  },
+  {
+    name: "Vintage Sepia",
+    colors: ["#704214", "#8B5A2B", "#A0826D", "#BC9A6B", "#D4AF37"]
+  }
+];
+---
+
+<div class="palette-grid">
+  {colorPalettes.map((palette, paletteIndex) => (
+    <div 
+      class="palette-card glass-card fade-in-up" 
+      style={`animation-delay: ${paletteIndex * 0.05}s`}
+    >
+      <h3 class="palette-name">{palette.name}</h3>
+      <div class="color-swatches">
+        {palette.colors.map((color) => (
+          <div class="color-swatch-wrapper">
+            <div 
+              class="color-swatch" 
+              style={`background-color: ${color}`}
+              data-color={color}
+            >
+            </div>
+            <div class="color-code mono">{color}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .palette-card {
+    padding: var(--spacing-lg);
+    opacity: 0;
+  }
+
+  .palette-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+  }
+
+  .color-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .color-swatch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .color-swatch-wrapper:hover {
+    background: var(--color-glass-bg);
+    transform: translateX(4px);
+  }
+
+  .color-swatch {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .color-swatch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .color-swatch-wrapper:hover .color-swatch {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .color-swatch-wrapper:hover .color-swatch::after {
+    opacity: 1;
+  }
+
+  .color-code {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    user-select: all;
+    transition: color var(--transition-fast);
+  }
+
+  .color-swatch-wrapper:hover .color-code {
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .palette-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .color-swatch {
+      width: 50px;
+      height: 50px;
+    }
+  }
+</style>
