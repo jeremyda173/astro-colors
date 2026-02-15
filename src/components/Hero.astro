@@ -1,0 +1,186 @@
+---
+---
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-content fade-in-up">
+      <div class="hero-badge scale-in">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <span>Mikens</span>
+      </div>
+      
+      <h1>Generador Mikens</h1>
+      
+      <p class="hero-description">
+        Explora paletas de colores cuidadosamente curadas y copia códigos hexadecimales al instante. 
+        Construido con Astro para un rendimiento ultra rápido con Zero JS en el renderizado inicial.
+      </p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">⚡ 0 KB</div>
+          <div class="stat-label">JavaScript inicial</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">🏝️ Islas</div>
+          <div class="stat-label">Hidratación bajo demanda</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">💯 100</div>
+          <div class="stat-label">Lighthouse Score</div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+        <span>Haz clic en cualquier color para copiar</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    position: relative;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-xl);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+  }
+
+  .badge-icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-accent-primary);
+  }
+
+  .hero-description {
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    padding: var(--spacing-lg);
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-lg);
+    min-width: 140px;
+    transition: all var(--transition-base);
+  }
+
+  .stat-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-accent-gradient);
+    color: white;
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+
+  .cta-icon {
+    width: 20px;
+    height: 20px;
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  @keyframes float-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    }
+
+    .hero-stats {
+      gap: var(--spacing-md);
+    }
+
+    .stat-item {
+      min-width: 120px;
+      padding: var(--spacing-md);
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+    }
+  }
+</style>
